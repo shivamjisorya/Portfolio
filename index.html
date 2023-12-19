@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    Meta tags and Bootstrap CSS
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%-->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@400;600;700&display=swap" rel="stylesheet">
+
+  <!-- font awesome linking -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" />
+  <!-- font awesome linking -->
+
+
+    <style>
+        /* <!-- %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+        Global Styles
+        %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%--> */
+        body {
+            background-color: #1b1b1b;
+            color: #fff;
+            font-family: 'Raleway', sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        /* <!-- %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+        Banner Section
+        %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%--> */
+        .banner {
+            position: relative;
+            height: 600px; 
+            overflow: hidden;
+        }
+        .image-sort{
+            width: 50%;
+            /* object-fit: contain; */
+        }
+
+        .image-sort img{
+            height: 400px;
+            width: 50%;
+            margin-top: 100px;
+            margin-left: 200px;
+            border: 15px solid #dc3545;
+            border-radius :25px;
+        }
+        /* .image-fluid {
+          
+        } */
+
+        /* .banner img {
+            width: 100%;
+            mask: url('irregular-shape.svg') center / contain no-repeat;
+        } */
+
+        .banner-text {
+            position: absolute;
+            top: 50%;
+            left: 5%;
+            transform: translateY(-50%);
+            text-align: left;
+        }
+
+        .banner h1 {
+            font-weight: 700;
+            margin-bottom: 20px;
+            font-size: 5rem; 
+            animation: fadeInUp 1s ease-out;
+        }
+
+        .banner p {
+            font-weight: 400;
+            font-size: 3.5rem; 
+            animation: fadeInUp 1s ease-out 0.5s;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* <!-- %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+        Navbar Section
+        %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%--> */
+        .navbar {
+            background-color: #dc3545; 
+            border-bottom: 2px solid #fff;
+            transition: background-color 0.5s ease-out;
+        }
+
+        .navbar a {
+            color: #fff ;
+            font-weight: 700;
+            letter-spacing: 1px;
+            transition: color 0.3s ease-out;
+            font-size: 1rem; 
+        }
+
+        .navbar a:hover {
+            color: #fff;
+            text-decoration: none;
+        }
+
+        .navbar .btn-primary {
+            background-color: #dc3545; 
+            border: 2px solid #fff;
+            font-weight: 700;
+            letter-spacing: 1px;
+            transition: background-color 0.3s ease-out, border-color 0.3s ease-out;
+            font-size: 1rem; 
+        }
+
+        .navbar .btn-primary:hover {
+            background-color: #fff;
+            color: #dc3545;
+        }
+        .nav-item:hover{
+            background-color:#083D77;
+            /* color: #8c1f2b; */
+            border-radius: 10px;
+        }
+
+        /* <!-- %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+        Content Section
+        %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%--> */
+        .content-section {
+            padding: 50px;
+        }
+
+        h2 {
+            color: #dc3545; 
+            font-size: 3rem; 
+            margin-bottom: 30px;
+        }
+
+        p {
+            color: #ddd; 
+            font-size: 1.5rem; 
+            line-height: 1.6;
+        }
+
+        /* <!-- %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+        Project Card Section
+        %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%--> */
+        .project-card {
+            background-color: #8c1f2b; 
+            color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s ease-out, box-shadow 0.3s ease-out;
+            height: 350px;
+        }
+
+        .project-card:hover {
+            transform: scale(1.05);
+            box-shadow: 0 0 40px rgba(0, 0, 0, 0.4);
+        }
+
+        .card-title {
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+        }
+
+        .card-text {
+            font-size: 1.2rem;
+        }
+
+        /* <!-- %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+        Skills Section
+        %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%--> */
+        .skills-section {
+            background-color: #8c1f2b; 
+            color: #fff;
+            padding: 50px 0;
+        }
+
+        .skills-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .skills-list li {
+            display: inline-block;
+            margin-right: 20px;
+        }
+
+        .skills-list li:last-child {
+            margin-right: 0;
+        }
+
+        .skills-list i {
+            font-size: 2.5rem;
+            margin-right: 10px;
+        }
+        .para-inline{
+            display: inline-block;
+            margin: 20px;
+        }
+        .para-inline a{
+            text-decoration: none;
+            color: #af1212;
+        }
+
+        /* <!-- %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+        Additional Styles
+        %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%--> */
+        /* Add more styles as needed */
+
+    </style>
+
+    <title>Shivam's Portfolio</title>
+</head>
+<body>
+
+    <!-- Banner Section -->
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-lg-6 image-sort">
+            <div class="banner">
+                <div class="banner-text">
+                    <h1>Shivam</h1>
+                    <p class="lead">Full Stack Web Developer</p>
+                </div>
+            </div>
+        </div>
+                <div class="col-lg-6 image-sort">
+                    <div class="row">
+                        <div class="col-12 img-fluid">
+                            <img src="./owner-pics/white shirt.jpg" alt="Your Image" class="">
+                        </div>
+                    </div>
+                </div>
+    </div>
+</div>
+
+
+    <!-- Navigation Bar -->
+    <nav class="navbar navbar-expand-lg navbar-dark">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">SHIVAM</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <!-- %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+                    Navigation Links
+                    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%-->
+                    <li class="nav-item mx-3"><a class="nav-link" href="#intro">Intro</a></li>
+                    <li class="nav-item mx-3"><a class="nav-link" href="#about-me">About Me</a></li>
+                    <li class="nav-item mx-3"><a class="nav-link" href="#projects">Projects</a></li>
+                    <li class="nav-item mx-3"><a class="nav-link" href="#contact-shivam">Contact Shivam</a></li>
+                </ul>
+                <!-- %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+                Download CV Button
+                %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%-->
+                <a href="https://docs.google.com/document/d/197YWRPQIdH5Zhh4Gr_LyXbxE_yRSoZ0d/edit?usp=sharing&ouid=107098589290515941117&rtpof=true&sd=true" class="btn btn-primary">Download CV</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Intro Section -->
+    <div id="intro" class="content-section">
+        <h2>Intro</h2>
+        <p>Welcome to my portfolio! I am a passionate and skilled Full Stack Web Developer, dedicated to creating efficient and user-friendly web applications. My journey in the world of web development has equipped me with a diverse set of skills and experiences.</p>
+    </div>
+
+    <!-- About Me Section -->
+    <div id="about-me" class="content-section">
+        <h2>About Me</h2>
+        <p>As a Full Stack Web Developer, I thrive in both front-end and back-end development. My expertise includes HTML, CSS, JavaScript, Node.js, React, and more. I enjoy turning ideas into reality through clean and maintainable code, and I am always eager to learn and adapt to new technologies.</p>
+    </div>
+
+    <!-- Projects Section -->
+    <div id="projects" class="content-section">
+        <h2>Projects</h2>
+        <div class="row">
+            <!-- %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+            Project Card 1
+            %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%-->
+            <div class="col-md-4">
+                <div class="card project-card">
+                    <div class="card-body">
+                        <h3 class="card-title">Furniture Store Website</h3>
+                        <p class="card-text">Developed a robust local furniture e-commerce platform with advanced features, providing users with a seamless online furniture shopping experience. Implemented secure payment gateways and intuitive user interfaces.</p>
+                        <a href="#" class="btn btn-light">View Project</a>
+                    </div>
+                </div>
+            </div>
+            <!-- %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+            Project Card 2
+            %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%-->
+            <div class="col-md-4">
+                <div class="card project-card">
+                    <div class="card-body">
+                        <h3 class="card-title">Hotel Management/Booking Website</h3>
+                        <p class="card-text">Designed and implemented front-end website , A Hotel booking site named UNCHI DHARA  that allows users to see and analyze their Hotel regions and staying with Integrated  visualization.</p>
+                        <a href="https://shivamjisorya.github.io/frontend-unchi-dhara/" class="btn btn-light">
+                            View Project</a>
+                    </div>
+                </div>
+            </div>
+            <!-- %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+            Project Card 3
+            %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%-->
+            <div class="col-md-4">
+                <div class="card project-card">
+                    <div class="card-body">
+                        <h3 class="card-title">Portfolio Website</h3>
+                        <p class="card-text">Developed a personal portfolio website to showcase my skills and projects. Implemented responsive design and interactive elements to create a memorable user experience.</p>
+                        <a href="#" class="btn btn-light">View Project</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    Skills Section
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%-->
+    <div class="skills-section">
+        <h2 class="text-center mb-4">Skills</h2>
+        <ul class="skills-list text-center">
+            <li><i class="fab fa-html5"></i> HTML5</li>
+            <li><i class="fab fa-css3-alt"></i> CSS3</li>
+            <li><i class="fab fa-js"></i> JavaScript</li>
+            <li><i class="fab fa-node-js"></i> Node.js</li>
+            <li><i class="fab fa-react"></i> React</li>
+            <li><i class="fab fa-bootstrap"></i> Bootstrap</li>
+            <li><i class="fas fa-database"></i> MongoDB</li>
+            <!-- Add more skills as needed -->
+        </ul>
+    </div>
+
+    <!-- %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    Contact Shivam Section
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%-->
+    <div id="contact-shivam" class="content-section">
+        <h2>Contact Shivam</h2>
+        <p>Feel free to reach out to me for any inquiries, collaboration opportunities, or just to say hello! I am open to new challenges and always excited to contribute to innovative projects. Let's connect and create something amazing together.</p>
+        <p class="para-inline">Contact No. : 8287719787</p>
+        <p class="para-inline">Email Id : jisoryas26@gmail.com</p>
+        <p class="para-inline">LinkedIn : 
+            <a href="https://www.linkedin.com/in/shivam-jisorya-22107a204?lipi=urn%3Ali%3Apage%3Ad_flagship3_profile_view_base_contact_details%3BnX6qT0L0SqOflJd5iVjg6A%3D%3D">
+            click me <i class="fa-solid fa-hand-pointer" style="color: #af1212;"></i></a></p>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
