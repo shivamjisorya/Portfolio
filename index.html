@@ -1,53 +1,45 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
     <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@400;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
     <style>
         body {
-            background-color: #1b1b1b;
-            color: #fff;
-            font-family: 'Raleway', sans-serif;
+            background-color: #1a1a1a;
+            color: #ecf0f1;
+            font-family: 'Poppins', sans-serif;
             margin: 0;
             padding: 0;
+            overflow-x: hidden;
         }
 
         .banner {
             position: relative;
-            height: 600px; 
-            overflow: hidden;
-        }
-
-        .image-sort img {
-            max-width: 100%;
-            height: auto;
-            border: 15px solid #dc3545;
-            border-radius: 25px;
-        }
-
-        .banner-text {
-            position: absolute;
-            top: 50%;
-            left: 5%;
-            transform: translateY(-50%);
-            text-align: left;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            background: url('./path-to-banner-image.jpg') no-repeat center center/cover;
+            background-color: #2c3e50;
         }
 
         .banner h1 {
             font-weight: 700;
             margin-bottom: 20px;
             font-size: 5vw;
+            color: #3498db;
             animation: fadeInUp 1s ease-out;
         }
 
         .banner p {
             font-weight: 400;
-            font-size: 3.5vw;
+            font-size: 2.5vw;
             animation: fadeInUp 1s ease-out 0.5s;
         }
 
@@ -56,6 +48,7 @@
                 opacity: 0;
                 transform: translateY(20px);
             }
+
             to {
                 opacity: 1;
                 transform: translateY(0);
@@ -63,13 +56,13 @@
         }
 
         .navbar {
-            background-color: #dc3545;
-            border-bottom: 2px solid #fff;
+            background-color: #2c3e50;
+            border-bottom: 2px solid #3498db;
             transition: background-color 0.5s ease-out;
         }
 
         .navbar a {
-            color: #fff;
+            color: #ecf0f1;
             font-weight: 700;
             letter-spacing: 1px;
             transition: color 0.3s ease-out;
@@ -77,13 +70,14 @@
         }
 
         .navbar a:hover {
-            color: #fff;
+            color: #3498db;
             text-decoration: none;
         }
 
         .navbar .btn-primary {
-            background-color: #dc3545;
-            border: 2px solid #fff;
+            background-color: #3498db;
+            border: 2px solid #3498db;
+            color: #ecf0f1;
             font-weight: 700;
             letter-spacing: 1px;
             transition: background-color 0.3s ease-out, border-color 0.3s ease-out;
@@ -91,40 +85,42 @@
         }
 
         .navbar .btn-primary:hover {
-            background-color: #fff;
-            color: #dc3545;
+            background-color: #ecf0f1;
+            color: #3498db;
         }
 
         .nav-item:hover {
-            background-color: #083D77;
+            background-color: #e74c3c;
             border-radius: 10px;
         }
 
         .content-section {
             padding: 50px;
+            background-color: #1a1a1a;
+            color: #ecf0f1;
+            text-align: center;
         }
 
         h2 {
-            color: #dc3545;
+            color: #3498db;
             font-size: 3rem;
             margin-bottom: 30px;
         }
 
         p {
-            color: #ddd;
+            color: #bdc3c7;
             font-size: 1.5rem;
             line-height: 1.6;
         }
 
         .project-card {
-            background-color: #8c1f2b;
-            color: #fff;
+            background-color: #2c3e50;
+            color: #ecf0f1;
             padding: 20px;
             border-radius: 10px;
             margin-bottom: 20px;
             box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
             transition: transform 0.3s ease-out, box-shadow 0.3s ease-out;
-            height: auto;
         }
 
         .project-card:hover {
@@ -142,8 +138,8 @@
         }
 
         .skills-section {
-            background-color: #8c1f2b;
-            color: #fff;
+            background-color: #3498db;
+            color: #1a1a1a;
             padding: 50px 0;
         }
 
@@ -151,20 +147,20 @@
             list-style: none;
             padding: 0;
             margin: 0;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
         }
 
         .skills-list li {
             display: inline-block;
-            margin-right: 10px;
-        }
-
-        .skills-list li:last-child {
-            margin-right: 0;
+            margin: 10px;
+            text-align: center;
         }
 
         .skills-list i {
             font-size: 2.5rem;
-            margin-right: 10px;
+            margin-bottom: 10px;
         }
 
         .para-inline {
@@ -174,36 +170,76 @@
 
         .para-inline a {
             text-decoration: none;
-            color: #af1212;
+            color: #e74c3c;
+        }
+
+        .footer {
+            background-color: #2c3e50;
+            color: #ecf0f1;
+            padding: 10px 0;
+            text-align: center;
+        }
+
+        .profile-image {
+            display: block;
+            margin: 0 auto;
+            border: 5px solid #3498db;
+            border-radius: 50%;
+            width: 200px;
+            height: 200px;
+            object-fit: cover;
+            transition: transform 0.3s ease-out, box-shadow 0.3s ease-out;
+        }
+
+        .profile-image:hover {
+            transform: scale(1.1);
+            box-shadow: 0 0 20px rgba(52, 152, 219, 0.6);
+        }
+
+        @media (max-width: 768px) {
+            .banner {
+                height: auto;
+                padding: 20px;
+            }
+
+            .banner h1 {
+                font-size: 8vw;
+            }
+
+            .banner p {
+                font-size: 4vw;
+            }
+
+            .content-section,
+            .skills-section {
+                padding: 30px 20px;
+            }
+
+            h2 {
+                font-size: 2rem;
+            }
+
+            p {
+                font-size: 1.2rem;
+            }
         }
     </style>
     <title>Shivam's Portfolio</title>
 </head>
+
 <body>
-    <div class="container-fluid">
-        <div class="row">
-            <div class="col-lg-6 image-sort">
-                <div class="banner">
-                    <div class="banner-text">
-                        <h1>Shivam</h1>
-                        <p class="lead">Full Stack Web Developer</p>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-6 image-sort">
-                <div class="row">
-                    <div class="col-12">
-                        <img src="./owner-pics/imagefinal.jpg" alt="Your Image" class="img-fluid">
-                    </div>
-                </div>
-            </div>
+    <div class="banner">
+        <div class="banner-text">
+            <h1>Shivam</h1>
+            <p class="lead">Full Stack Web Developer</p>
         </div>
     </div>
 
     <nav class="navbar navbar-expand-md navbar-dark">
         <div class="container-fluid">
             <a class="navbar-brand" href="#">SHIVAM</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
@@ -213,19 +249,25 @@
                     <li class="nav-item mx-3"><a class="nav-link" href="#projects">Projects</a></li>
                     <li class="nav-item mx-3"><a class="nav-link" href="#contact-shivam">Contact Shivam</a></li>
                 </ul>
-                <a href="https://docs.google.com/document/d/197YWRPQIdH5Zhh4Gr_LyXbxE_yRSoZ0d/edit?usp=sharing&ouid=107098589290515941117&rtpof=true&sd=true" class="btn btn-primary">Download CV</a>
+                <a href="https://drive.google.com/file/d/1yTpoIfpY58mhfubYMoYNyOxmMbTqpR5o/view?usp=drivesdk"
+                    class="btn btn-primary">Download CV</a>
             </div>
         </div>
     </nav>
 
     <div id="intro" class="content-section">
         <h2>Intro</h2>
-        <p>Welcome to my portfolio! I am a passionate and skilled Full Stack Web Developer, dedicated to creating efficient and user-friendly web applications. My journey in the world of web development has equipped me with a diverse set of skills and experiences.</p>
+        <p>Welcome to my portfolio! I am a passionate and skilled Full Stack Web Developer, dedicated to creating
+            efficient and user-friendly web applications. My journey in the world of web development has equipped me
+            with a diverse set of skills and experiences.</p>
     </div>
 
     <div id="about-me" class="content-section">
         <h2>About Me</h2>
-        <p>As a Full Stack Web Developer, I thrive in both front-end and back-end development. My expertise includes HTML, CSS, JavaScript, Node.js, React, and more. I enjoy turning ideas into reality through clean and maintainable code, and I am always eager to learn and adapt to new technologies.</p>
+        <img src="./owner-pics/image.jpg" alt="Shivam" class="profile-image">
+        <p>As a Full Stack Web Developer, I thrive in both front-end and back-end development. My expertise includes
+            HTML, CSS, JavaScript, Node.js, React, and more. I enjoy turning ideas into reality through clean and
+            maintainable code, and I am always eager to learn and adapt to new technologies and challenges.</p>
     </div>
 
     <div id="projects" class="content-section">
@@ -234,9 +276,10 @@
             <div class="col-md-6 col-lg-4">
                 <div class="card project-card">
                     <div class="card-body">
-                        <h3 class="card-title">Furniture Store Website</h3>
-                        <p class="card-text">Developed a robust local furniture e-commerce platform with advanced features, providing users with a seamless online furniture shopping experience. Implemented secure payment gateways and intuitive user interfaces.</p>
-                        <a href="#" class="btn btn-light">View Project</a>
+                        <h3 class="card-title">Banking System</h3>
+                        <p class="card-text">Implemented a banking system using HTML, CSS, and JavaScript. Users can
+                            create accounts, view balances, and transfer funds securely.</p>
+                        <a href="https://shivamjisorya.github.io/" class="btn btn-light">View Project</a>
                     </div>
                 </div>
             </div>
@@ -244,9 +287,10 @@
                 <div class="card project-card">
                     <div class="card-body">
                         <h3 class="card-title">Hotel Management/Booking Website</h3>
-                        <p class="card-text">Designed and implemented front-end website , A Hotel booking site named UNCHI DHARA  that allows users to see and analyze their Hotel regions and staying with Integrated  visualization.</p>
-                        <a href="https://shivamjisorya.github.io/frontend-unchi-dhara/" class="btn btn-light">
-                            View Project</a>
+                        <p class="card-text">Designed and implemented a front-end website named UNCHI DHARA that allows
+                            users to see and analyze their hotel regions and stays with integrated visualization.</p>
+                        <a href="https://shivamjisorya.github.io/frontend-unchi-dhara/" class="btn btn-light">View
+                            Project</a>
                     </div>
                 </div>
             </div>
@@ -254,7 +298,9 @@
                 <div class="card project-card">
                     <div class="card-body">
                         <h3 class="card-title">Portfolio Website</h3>
-                        <p class="card-text">Developed a personal portfolio website to showcase my skills and projects. Implemented responsive design and interactive elements to create a memorable user experience.</p>
+                        <p class="card-text">Developed a personal portfolio website to showcase my skills and projects.
+                            Implemented responsive design and interactive elements to create a memorable user
+                            experience.</p>
                         <a href="#" class="btn btn-light">View Project</a>
                     </div>
                 </div>
@@ -277,12 +323,21 @@
 
     <div id="contact-shivam" class="content-section">
         <h2>Contact Shivam</h2>
-        <p>Feel free to reach out to me for any inquiries, collaboration opportunities, or just to say hello! I am open to new challenges and always excited to contribute to innovative projects. Let's connect and create something amazing together.</p>
+        <p>Feel free to reach out to me for any inquiries, collaboration opportunities, or just to say hello! I am open
+            to new challenges and always excited to contribute to innovative projects. Let's connect and create
+            something amazing together.</p>
         <p class="para-inline">Contact No. : 8287719787</p>
         <p class="para-inline">Email Id : jisoryas26@gmail.com</p>
-        <p class="para-inline">LinkedIn : <a href="https://www.linkedin.com/in/shivam-jisorya-22107a204?lipi=urn%3Ali%3Apage%3Ad_flagship3_profile_view_base_contact_details%3BnX6qT0L0SqOflJd5iVjg6A%3D%3D">click me <i class="fa-solid fa-hand-pointer" style="color: #af1212;"></i></a></p>
+        <p class="para-inline">LinkedIn : <a
+                href="https://www.linkedin.com/in/shivam-jisorya-22107a204?lipi=urn%3Ali%3Apage%3Ad_flagship3_profile_view_base_contact_details%3BnX6qT0L0SqOflJd5iVjg6A%3D%3D">click
+                me <i class="fa-solid fa-hand-pointer" style="color: #af1212;"></i></a></p>
     </div>
+
+    <footer class="footer">
+        <p>&copy; 2024 Shivam Jisorya. All Rights Reserved.</p>
+    </footer>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
+
 </html>
