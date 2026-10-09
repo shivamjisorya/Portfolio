@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { profile } from '../data.js'
 
@@ -8,22 +8,28 @@ const ease = [0.22, 1, 0.36, 1]
 // 1. "A JISORYA ORIGINAL"  2. the name + THE SERIES  3. the lead rises in with a PLAY button.
 export default function Intro({ onDone }) {
   const [beat, setBeat] = useState(0)
+  const beatRef = useRef(0)
+  beatRef.current = beat
 
+  // The opening plays once, then holds on the PLAY screen until the viewer enters.
   useEffect(() => {
     const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches
-    const t1 = setTimeout(() => setBeat(1), reduce ? 200 : 1900)
+    const t1 = setTimeout(() => setBeat((b) => Math.max(b, 1)), reduce ? 200 : 1900)
     const t2 = setTimeout(() => setBeat(2), reduce ? 400 : 3700)
-    const onKey = (e) => {
-      if (e.key === 'Escape') onDone()
-      if (e.key === 'Enter' || e.key === ' ') beat === 2 ? onDone() : setBeat(2)
-    }
-    window.addEventListener('keydown', onKey)
     return () => {
       clearTimeout(t1)
       clearTimeout(t2)
-      window.removeEventListener('keydown', onKey)
     }
-  }, [onDone, beat])
+  }, [])
+
+  useEffect(() => {
+    const onKey = (e) => {
+      if (e.key === 'Escape') onDone()
+      if (e.key === 'Enter' || e.key === ' ') beatRef.current === 2 ? onDone() : setBeat(2)
+    }
+    window.addEventListener('keydown', onKey)
+    return () => window.removeEventListener('keydown', onKey)
+  }, [onDone])
 
   return (
     <motion.div className="intro" exit={{ opacity: 0, filter: 'blur(14px)', scale: 1.04 }} transition={{ duration: 0.7, ease }}>
