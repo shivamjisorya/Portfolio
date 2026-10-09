@@ -1,8 +1,7 @@
 import { useEffect } from 'react'
 import { motion } from 'framer-motion'
-import { profile, certifications } from '../data.js'
+import { profile } from '../data.js'
 import { pauseScroll } from '../smooth.js'
-import Portrait from './Portrait.jsx'
 
 export default function Modal({ data, onClose }) {
   const { kind, item } = data
@@ -31,54 +30,37 @@ export default function Modal({ data, onClose }) {
         <button className="modal-close" onClick={onClose} aria-label="Close">
           ✕
         </button>
-        {kind === 'about' ? <AboutBody /> : <ItemBody kind={kind} item={item} />}
+        {kind === 'about' ? <AboutBody /> : <ProjectBody item={item} />}
       </motion.div>
     </motion.div>
   )
 }
 
-function ItemBody({ kind, item }) {
-  const isProject = kind === 'project'
+function ProjectBody({ item }) {
   return (
     <>
-      <motion.div className="modal-art" layoutId={`art-${item.id}`} style={{ '--h': item.hue }}>
-        <span className="s-mark small">S</span>
-        <h3>{isProject ? item.title : item.company}</h3>
-        <div className="modal-art-fade" />
-      </motion.div>
+      <div className="modal-art" style={{ '--a': item.grad[0], '--b': item.grad[1] }}>
+        <span className="og-top">
+          <span className="s-mark">S</span> ORIGINAL
+        </span>
+        <h3>{item.title}</h3>
+      </div>
       <div className="modal-body">
         <div className="modal-main">
           <p className="hero-meta">
-            <span className="match">{isProject ? item.match : 100}% Match</span>
-            <span>{isProject ? item.year : item.period}</span>
-            <span className="hd">HD</span>
+            <span className="hero-rating">{item.year}</span>
+            <span>{item.studio}</span>
           </p>
-          <h4>{isProject ? item.kicker : item.title}</h4>
-          {isProject ? (
-            <p>{item.desc}</p>
-          ) : (
-            <ol className="episodes">
-              {item.points.map((p, i) => (
-                <li key={i}>
-                  <span className="ep-n">{i + 1}</span>
-                  <p>{p}</p>
-                </li>
-              ))}
-            </ol>
-          )}
+          <h4>{item.kicker}</h4>
+          <p>{item.desc}</p>
         </div>
         <aside className="modal-side">
           <p>
             <span>Cast:</span> {item.stack.join(', ')}
           </p>
           <p>
-            <span>{isProject ? 'Genres:' : 'Location:'}</span> {isProject ? item.genre.join(', ') : item.place}
+            <span>Studio:</span> {item.studio}
           </p>
-          {!isProject && (
-            <p>
-              <span>Studio:</span> {item.org}
-            </p>
-          )}
         </aside>
       </div>
     </>
@@ -88,22 +70,19 @@ function ItemBody({ kind, item }) {
 function AboutBody() {
   return (
     <div className="modal-body about-modal">
-      <Portrait className="about-modal-photo" />
+      <img className="about-modal-photo" src={`${import.meta.env.BASE_URL}${profile.photo}`} alt={profile.name} />
       <div className="modal-main">
         <h3 className="modal-name">{profile.name}</h3>
         <p className="hero-meta">
-          <span className="match">{profile.role}</span>
+          <span className="hero-rating">{profile.role}</span>
           <span>{profile.location}</span>
         </p>
         <p>{profile.summary}</p>
-        <p className="modal-side">
-          <span>Certifications:</span> {certifications.join(' · ')}
-        </p>
         <div className="hero-cta">
           <a className="btn btn-play" href={`mailto:${profile.email}`}>
             Contact me
           </a>
-          <a className="btn btn-info" href={profile.linkedin} target="_blank" rel="noreferrer">
+          <a className="btn btn-ghost" href={profile.linkedin} target="_blank" rel="noreferrer">
             LinkedIn
           </a>
         </div>
